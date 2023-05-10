@@ -1,13 +1,13 @@
-Lockpick_RCM
+Schlossfrei_RCM
 =
-Lockpick_RCM is a bare metal Nintendo Switch payload that derives encryption keys for use in Switch file handling software like hactool, hactoolnet/LibHac, ChoiDujour, etc. without booting Horizon OS.
+Schlossfrei_RCM is a bare metal Nintendo Switch payload that derives encryption keys for use in Switch file handling software like hactool, hactoolnet/LibHac, ChoiDujour, etc. without booting Horizon OS.
 
 Due to changes imposed by firmware 7.0.0, Lockpick homebrew can no longer derive the latest keys. In the boot-time environment however, there is no such limitation.
 
 Usage
 =
 * It is highly recommended, but not required, to place Minerva on SD from the latest [Hekate](https://github.com/CTCaer/hekate/releases) for best performance, especially while dumping titlekeys - the file and path is `/bootloader/sys/libsys_minerva.bso`
-* Launch Lockpick_RCM.bin using your favorite payload injector or chainloader
+* Launch Schlossfrei_RCM.bin using your favorite payload injector or chainloader
 * Upon completion, keys will be saved to `/switch/prod.keys` and titlekeys to `/switch/title.keys` on SD
 * This release bundles the Falcon keygen from [Atmosphère-NX](https://github.com/Atmosphere-NX/Atmosphere)
 
@@ -19,7 +19,7 @@ The keyslots are as follows, with names recognized by `hactool`:
 * 0-11 - `mariko_aes_class_key_xx` (this is not used by the Switch but is set by the bootrom; hactoolnet recognizes it but it serves no purpose)
 * 12 - `mariko_kek` (not unique - this is used for master key derivation)
 * 13 - `mariko_bek` (not unique - this is used for BCT and package1 decryption)
-* 14 - `secure_boot_key` (console unique - this isn't needed for further key derivation than what Lockpick_RCM does but might be nice to have for your records)
+* 14 - `secure_boot_key` (console unique - this isn't needed for further key derivation than what Schlossfrei_RCM does but might be nice to have for your records)
 * 15 - Secure storage key (console unique - this is not used on retail or dev consoles and not recognized by any tools)
 
 So if you want to brute force the `mariko_kek`, open your `partialaes.keys` and observe the numbers beneath keyslot 12. Here's an example with fake numbers:
@@ -45,3 +45,5 @@ This software is heavily based on [Hekate](https://github.com/CTCaer/hekate). Be
 License
 =
 This project is under the GPLv2 license. The Save processing module is adapted from [hactool](https://github.com/SciresM/hactool) code under ISC.
+
+Schlossfrei_RCM is a fork of Lockpick_RCM

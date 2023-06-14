@@ -5,7 +5,7 @@
 
 #ifndef LV_AREA_H
 #define LV_AREA_H
-
+#include <stdint.h>
 #ifdef __cplusplus
 extern "C" {
 #endif
